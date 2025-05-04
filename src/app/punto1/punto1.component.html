@@ -1,0 +1,33 @@
+<div class="container mt-4">
+    <h2>Slide de Noticias - Punto 1</h2>
+    <hr>
+  
+    <div class="card shadow-sm mx-auto" style="max-width: 600px;">
+      <ng-container *ngIf="noticias.length > 0">
+        <img [src]="noticiaActual.img"
+             class="card-img-top"
+             [alt]="noticiaActual.titulo">
+  
+        <div class="card-body">
+          <h5 class="card-title">{{ noticiaActual.titulo }}</h5>
+          <p class="card-text">{{ noticiaActual.noticia }}</p>
+        </div>
+  
+        <div class="card-footer d-flex justify-content-between">
+          <button class="btn btn-secondary" (click)="anteriorNoticia()">
+            &laquo; Anterior
+          </button>
+          <span class="align-self-center text-muted">
+            {{ indiceActual + 1 }} de {{ noticias.length }}
+          </span>
+          <button class="btn btn-dark" (click)="siguienteNoticia()">
+            Siguiente &raquo;
+          </button>
+        </div>
+      </ng-container>
+  
+      <div *ngIf="noticias.length === 0" class="card-body text-center">
+        <p>No hay noticias para mostrar.</p>
+      </div>
+    </div>
+  </div>

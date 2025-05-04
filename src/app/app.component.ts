@@ -1,9 +1,16 @@
+// src/app/app.component.ts
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+// Asegúrate que estos imports estén presentes
+import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
+  imports: [
+    RouterOutlet,
+    RouterLink,
+    RouterLinkActive // Sigue siendo necesario para la directiva [routerLinkActive]
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

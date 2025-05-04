@@ -1,0 +1,40 @@
+<h2>Juego de ahorcado - Punto 3</h2>
+<hr>
+
+<div class="container text-center">
+  <h4>Categoría: {{ ahorcadoService.categoria }}</h4>
+
+  <img [src]="obtenerImagenEstado()" alt="Estado del ahorcado" class="img-fluid mb-3" style="max-height: 300px;">
+
+  <h3 class="mb-3">{{ ahorcadoService.obtenerPalabraFormada() }}</h3>
+
+  <div class="d-flex flex-wrap justify-content-center mb-3">
+    <button *ngFor="let letra of abecedario"
+            class="btn btn-outline-dark m-1"
+            style="width: 40px; height: 40px; padding: 0;"
+            [disabled]="letrasUsadas.includes(letra)"
+            (click)="enviarLetra(letra)">
+      {{ letra }}
+    </button>
+  </div>
+
+  <p>Intentos restantes: {{ ahorcadoService.intentosRestantes }}</p>
+
+  <!-- Modal Bootstrap -->
+  <div class="modal fade show d-block" tabindex="-1" role="dialog" *ngIf="mostrarModal">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Resultado del juego</h5>
+          <button type="button" class="btn-close" (click)="nuevoJuego()"></button>
+        </div>
+        <div class="modal-body">
+          <p>{{ mensajeModal }}</p>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" (click)="nuevoJuego()">Jugar de nuevo</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

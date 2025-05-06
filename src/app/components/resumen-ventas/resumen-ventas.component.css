@@ -1,0 +1,55 @@
+
+.summary-container {
+    /* Bootstrap: Podrías usar clases como 'p-3' o 'border rounded' si quieres un fondo/borde */
+    padding: 1rem;
+
+  }
+  
+  /* Cada línea/item del resumen */
+  .summary-item {
+    display: flex;           /* Usar Flexbox para alinear label y value */
+    justify-content: space-between; /* Poner label a la izquierda y value a la derecha */
+    align-items: center;     /* Alinear verticalmente al centro */
+    margin-bottom: 0.75rem;  /* Espacio entre ítems */
+
+  }
+  
+  /* Etiqueta dentro de un ítem (Menor:, Adulto:, etc.) */
+  .summary-item .label {
+    color: #495057; /* Un gris un poco más oscuro */
+  }
+  
+  /* Valor dentro de un ítem (el número o monto) */
+  .summary-item .value {
+    font-weight: bold; /* Hacer el valor más prominente */
+  }
+  
+  /* Línea horizontal separadora */
+  hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Estilos específicos para los ítems de total */
+  .summary-item.total {
+    margin-top: 1rem;    /* Más espacio arriba de los totales */
+    font-size: 1.1rem;   /* Ligeramente más grande */
+  }
+  
+
+  
+  .summary-item.total .value {
+    color: #198754; 
+  }
+  /* --- Estilos Opcionales para 3.html (Resumen) --- */
+@media (max-width: 400px) { /* Un breakpoint muy pequeño */
+    .summary-item {
+      flex-direction: column; /* Apilar label y valor */
+      align-items: flex-start; /* Alinear a la izquierda */
+      margin-bottom: 1rem; /* Más espacio si se apilan */
+    }
+    .summary-item .value {
+      margin-top: 0.25rem; /* Pequeño espacio entre label y valor apilados */
+      font-size: 1.1rem; /* Asegurar buen tamaño */
+    }
+  }

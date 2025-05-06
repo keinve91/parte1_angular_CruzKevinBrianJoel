@@ -1,0 +1,64 @@
+
+   .app-content {
+    padding: 1.5rem; /* Ejemplo de padding general */
+  }
+
+  h2 {
+    margin-bottom: 1.5rem; /* Espacio debajo de los títulos */
+  }
+  
+
+
+  .form-group {
+    margin-bottom: 1rem; /* Espacio entre campos del formulario */
+  }
+
+  .calculated-price {
+    margin-top: 1rem;    /* Espacio arriba del precio calculado */
+    padding: 0.5rem 0;   /* Un poco de padding vertical */
+    font-size: 1.1rem;   /* Ligeramente más grande */
+    display: flex;       /* Para alinear etiqueta y valor si se necesita más control */
+    justify-content: space-between; /* Ejemplo de alineación */
+    align-items: center;
+  }
+  
+  .calculated-price label {
+    margin-bottom: 0; /* Remover margen inferior por defecto del label dentro de flex */
+  }
+  
+  .calculated-price span {
+    font-weight: bold; /* Hacer el precio calculado más prominente */
+    color: #0d6efd; /* Opcional: Usar un color temático (azul primario de Bootstrap) */
+  }
+  
+
+  form button[type="submit"] {
+    margin-top: 1rem;
+  }
+  
+
+  .results-section {
+    margin-top: 2rem; /* Espacio entre la sección del formulario y la sección de resultados */
+  }
+
+  @media (max-width: 767.98px) {
+    .results-section .col-md-4 .card {
+      margin-top: 1.5rem; /* Espacio cuando las columnas se apilan */
+    }
+  }
+  
+
+  .alert.alert-danger {
+     margin-top: 0.25rem; /* Pequeño espacio sobre el mensaje de error */
+     padding: 0.5rem 1rem; /* Ajustar padding si es necesario */
+     font-size: 0.875rem; /* Hacer el texto un poco más pequeño */
+  }
+.results-section .card-body {
+  overflow-x: auto; /* Agrega scroll horizontal si el contenido se desborda */
+  max-width: 100%;
+}
+
+app-lista-boletos, app-resumen-ventas {
+  display: block;
+  width: 100%;
+}

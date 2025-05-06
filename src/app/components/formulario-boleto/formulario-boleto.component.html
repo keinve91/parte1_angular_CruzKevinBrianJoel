@@ -1,0 +1,93 @@
+<main class="app-content">
+    <section class="form-section card mb-4">
+      <div class="card-body">
+        <h2>Registrar Nuevo Boleto</h2>
+        <form #boletoForm="ngForm" (ngSubmit)="registrarBoleto()">
+  
+          <!-- DNI -->
+          <div class="form-group">
+            <label for="dni">DNI:</label>
+            <input type="text" id="dni" name="dni" class="form-control"
+              [(ngModel)]="boleto.dni" required #dniInput="ngModel">
+            <div *ngIf="dniInput.invalid && (dniInput.dirty || dniInput.touched)" class="alert alert-danger">
+              DNI es requerido.
+            </div>
+          </div>
+  
+          <!-- Precio Base -->
+          <div class="form-group">
+            <label for="precioBase">Precio Base ($):</label>
+            <input type="number" id="precioBase" name="precioBase" class="form-control" min="0"
+              [(ngModel)]="boleto.precioBase" required #precioInput="ngModel"
+              (ngModelChange)="onInputChanged()">
+            <div *ngIf="precioInput.invalid && (precioInput.dirty || precioInput.touched)" class="alert alert-danger">
+              Precio base es requerido y debe ser positivo.
+            </div>
+          </div>
+  
+          <!-- Categoría Turista -->
+          <div class="form-group">
+            <label for="categoriaTurista">Categoría Turista:</label>
+            <select id="categoriaTurista" name="categoriaTurista" class="form-control"
+              [(ngModel)]="boleto.categoriaTurista" required #categoriaInput="ngModel"
+              (ngModelChange)="onInputChanged()">
+              <option [ngValue]="undefined" disabled selected>Seleccione una categoría...</option>
+              <option *ngFor="let opcion of opcionesCategoria" [ngValue]="opcion.valor">
+                {{ opcion.texto }}
+              </option>
+            </select>
+            <div *ngIf="categoriaInput.invalid && (categoriaInput.dirty || categoriaInput.touched)" class="alert alert-danger">
+              Categoría es requerida.
+            </div>
+          </div>
+  
+          <!-- Email -->
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" class="form-control"
+              [(ngModel)]="boleto.email" required email #emailInput="ngModel">
+            <div *ngIf="emailInput.invalid && (emailInput.dirty || emailInput.touched)" class="alert alert-danger">
+              <span *ngIf="emailInput.errors?.['required']">Email es requerido.</span>
+              <span *ngIf="emailInput.errors?.['email']">Ingrese un email válido.</span>
+            </div>
+          </div>
+  
+          <!-- Precio Final calculado (solo si ambos datos están presentes) -->
+          <div *ngIf="mostrarPrecioFinal" class="form-group calculated-price">
+            <label>Precio Final a Pagar: </label>
+            <span>{{ precioFinalCalculado | currency:'ARS':'symbol':'1.2-2' }}</span>
+          </div>
+  
+          <!-- Botón -->
+          <button type="submit" class="btn btn-primary"
+            [disabled]="boletoForm.invalid || !mostrarPrecioFinal">
+            REGISTRAR VENTA
+          </button>
+  
+        </form>
+      </div>
+    </section>
+  
+    <section class="results-section">
+      <div class="row">
+        <!-- Lista de boletos -->
+        <div class="col-12 col-md-8 mb-4">
+          <div class="card h-100">
+            <div class="card-body">
+              <app-lista-boletos></app-lista-boletos>
+            </div>
+          </div>
+        </div>
+    
+        <!-- Resumen de ventas -->
+        <div class="col-12 col-md-4 mb-4">
+          <div class="card h-100">
+            <div class="card-body">
+              <app-resumen-ventas></app-resumen-ventas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  

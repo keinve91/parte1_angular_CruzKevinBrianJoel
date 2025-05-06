@@ -1,0 +1,73 @@
+
+@media (max-width: 767.98px) { /* md breakpoint - 1px */
+
+  .table-mobile-cards-v2 {
+    /* Quitar estilos de tabla por defecto que interfieran */
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  /* Ocultar el encabezado de la tabla */
+  .table-mobile-cards-v2 thead {
+    display: none;
+  }
+
+  /* Convertir cada fila en un bloque tipo tarjeta */
+  .table-mobile-cards-v2 tr {
+    display: block;
+    margin-bottom: 1rem; /* Espacio entre tarjetas */
+    background-color: var(--bs-card-bg, #fff); /* Fondo de tarjeta Bootstrap */
+    border: var(--bs-card-border-width, 1px) solid var(--bs-card-border-color, rgba(0, 0, 0, 0.175)); /* Borde de tarjeta Bootstrap */
+    border-radius: var(--bs-card-border-radius, 0.375rem); /* Bordes redondeados de tarjeta Bootstrap */
+    box-shadow: var(--bs-box-shadow-sm, 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075)); /* Sombra suave Bootstrap */
+    padding: 1rem; /* Padding interno generoso para la tarjeta */
+  }
+
+   /* Convertir cada celda en un bloque */
+  .table-mobile-cards-v2 td {
+    display: block; /* Cada celda ocupa una línea */
+    border: none; /* Sin bordes de celda */
+    padding: 0.5rem 0; /* Espaciado vertical entre label/value pairs */
+    /* Agregar un borde sutil *debajo* de cada item, excepto el último */
+    border-bottom: 1px solid var(--bs-border-color-translucent, rgba(0, 0, 0, 0.08));
+  }
+
+  /* Quitar el borde inferior de la última celda */
+  .table-mobile-cards-v2 tr td:last-child {
+    border-bottom: none;
+    padding-bottom: 0; /* Sin padding extra al final */
+  }
+   /* Quitar padding superior de la primera celda */
+  .table-mobile-cards-v2 tr td:first-child {
+    padding-top: 0;
+  }
+
+  /* Crear el label usando el atributo data-label - AHORA ENCIMA DEL VALOR */
+  .table-mobile-cards-v2 td::before {
+    content: attr(data-label); /* Tomar texto del atributo data-label */
+    display: block; /* Ocupa su propia línea */
+    font-size: 0.75rem; /* Más pequeño que el valor */
+    font-weight: 600; /* Semi-bold */
+    color: var(--bs-secondary-color, #6c757d); /* Color secundario Bootstrap */
+    text-transform: uppercase; /* MAYÚSCULAS para distinguirlo */
+    margin-bottom: 0.15rem; /* Pequeño espacio antes del valor */
+    /* No necesitamos posicionamiento absoluto ni anchos fijos ahora */
+  }
+
+  /* Estilo implícito para el valor (el contenido del td) */
+  .table-mobile-cards-v2 td {
+    font-size: 0.95rem; /* Tamaño legible para el valor */
+    text-align: left; /* Alinear valor a la izquierda (más natural bajo el label) */
+    word-wrap: break-word; /* Asegurar que el texto largo se ajuste */
+  }
+} /* Fin de @media (max-width: 767.98px) */
+
+
+@media (min-width: 768px) {
+  /* Ocultar los labels ::before en pantallas grandes */
+  .table-mobile-cards-v2 td::before {
+    display: none;
+  }
+
+}
+

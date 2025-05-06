@@ -1,0 +1,30 @@
+<h2>Resumen de Ventas</h2>
+<div class="summary-container">
+
+  <div class="summary-item">
+    <span class="label">Boletos Menor:</span>
+    <span class="value">{{ countMenor }}</span>
+  </div>
+
+  <div class="summary-item">
+    <span class="label">Boletos Adulto:</span>
+    <span class="value">{{ countAdulto }}</span>
+  </div>
+
+  <div class="summary-item">
+    <span class="label">Boletos Jubilado:</span>
+    <span class="value">{{ countJubilado }}</span>
+  </div>
+  <hr>
+
+  <div class="summary-item total">
+    <span class="label">Total Boletos Vendidos:</span>
+    <span class="value">{{ totalBoletos }}</span>
+  </div>
+
+   <div class="summary-item total">
+     <span class="label">Recaudación Total:</span>
+     <span class="value">{{ totalGeneral | currency:'ARS':'symbol':'1.2-2' }}</span>
+   </div>
+
+</div>
